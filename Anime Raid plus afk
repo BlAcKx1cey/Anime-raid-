@@ -1,0 +1,150 @@
+G.Settings = {
+
+
+    Raidselectmap = "None",
+
+    distance = 10,
+
+    
+
+    afkandraid = true,
+
+    autoclaimrewardraid = false,
+
+    FriendsOnly = true,
+
+    eggspintime = "3",
+
+    autoclaimrewardspeed = false,
+
+    equipselectmain = false,
+
+    equipselectmain1 = false,
+
+    equipselectmain2 = false,
+
+    selectmain = "None",
+
+    selectmain1 = "None",
+
+    selectmain2 = "None",
+
+    autosellcommon = false,
+
+    autoselluncommon = false,
+
+    autosellrare = false,
+
+    autosellepic = false,
+
+    selectegg = "None",
+
+    autoselllegendary = false,
+
+    autoequipbest = false,
+
+    autoupgrade = false,
+
+    Height = 20,
+
+    Height1 = -20,
+
+    otherds = "@here",
+
+    dsuser = "Not Set",
+
+
+}
+    {
+        Name = "Farm Raid + AFK",
+        Default = _G.Settings.afkandraid,
+        Color = Color3.fromRGB(255,215,0),
+        Callback = function(H)
+            _G.Settings.afkandraid = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(3) do
+                        if not _G.Settings.afkandraid then
+                            break
+                        end
+                        spawn(
+                            function()
+                                if game.PlaceId == 7274690025 or game.PlaceId == 6938803436 then
+                                    game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
+                                        "CreateRoom",
+                                        {
+                                            ["Difficulty"] = "Easy",
+                                            ["FriendsOnly"] = true,
+                                            ["MapName"] = "Tengoku Raid",,
+                                            ["Hardcore"] = false
+                                        }
+                                    )
+                                    game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
+                                        "TeleportPlayers"
+                                    )
+                                    wait(5)
+                                    game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
+                                        "TeleportToAFK"
+                                    )
+                                end
+                            end
+                        )
+                        spawn(
+                            function()
+                                if game.PlaceId == 6990131029 then
+                                    wait(300)
+                                    game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
+                                        "TeleportToLobbyAFK",
+                                        true
+                                    )
+                                end
+                            end
+                        )
+                    end
+                end
+            )
+        end
+    }
+)
+F:AddToggle(
+    {
+        Name = "Farm Raid Token",
+        Default = _G.Settings.farmraidtoken,
+        Color = Color3.fromRGB(255,215,0),
+        Callback = function(H)
+            _G.Settings.farmraidtoken = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(260) do
+                        if not _G.Settings.farmraidtoken then
+                            break
+                        end
+                        spawn(
+                            function()
+                                if game.PlaceId == 6990131029 then
+                                    _G.Name = game.Players.LocalPlayer.Name .. "StatDisplay"
+                                    valuecurrency = game.ReplicatedStorage[_G.Name].AfkCurrencyChosen.Value
+                                    if valuecurrency == "Gem" then
+                                        wait(1)
+                                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
+                                            "ChangeAFKCurrency"
+                                        )
+                                        for m, n in pairs(
+                                            getconnections(
+                                                game.Players.LocalPlayer.PlayerGui.AfkGui.CenterUIFrame.Frame.ChangeCurrency.MouseButton1Click
+                                            )
+                                        ) do
+                                            n:Fire()
+                                        end
+                                    end
+                                end
+                            end
+                        )
+                    end
+                end
+            )
+        end
+    }
+)
