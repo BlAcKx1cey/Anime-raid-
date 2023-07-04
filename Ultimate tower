@@ -1,0 +1,57 @@
+function teleportTO(placeCFrame)
+
+
+
+local plyr = game.Players.LocalPlayer;
+
+
+
+if plyr.Character then
+
+
+
+plyr.Character.HumanoidRootPart.CFrame = placeCFrame;
+
+
+
+end
+
+end
+
+
+
+
+
+teleportTO(game:GetService("Workspace").Lobby.ClassicPartyTeleporters.Teleporter1.Part.CFrame)
+
+
+
+Wait(1)
+
+local args = {
+    [1] = "HiddenLeafVillage"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("GlobalInit"):WaitForChild("RemoteEvents"):WaitForChild("PlayerSelectedMap"):FireServer(unpack(args))
+
+ Wait(1)
+
+game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("GlobalInit"):WaitForChild("RemoteEvents"):WaitForChild("PlayerQuickstartTeleport"):FireServer()
+Wait(1)
+game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerVoteForDifficulty")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
