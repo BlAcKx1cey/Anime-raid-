@@ -47,7 +47,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild
 
 wait()
 
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BlAcKx1cey/Anime-dimen/main/Anime%20dim"))()
 
 
 
