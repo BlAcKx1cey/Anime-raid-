@@ -39,11 +39,9 @@ game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Globa
 game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("GlobalInit"):WaitForChild("RemoteEvents"):WaitForChild("PlayerQuickstartTeleport"):FireServer()
 Wait(1)
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerVoteForDifficulty")
+wait()
 
-
-
-
-
+local args = {﻿     [1] = "159068388:40346",﻿     [2] = Vector3.new(-3012.188720703125, -72.62808227539062, 69.88467407226562)﻿ }﻿ ﻿ game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))﻿ ﻿ local args = {﻿     [1] = "159068388:40346",﻿     [2] = Vector3.new(-3020.867919921875, -72.62808227539062, 52.7109375)﻿ }﻿ ﻿ game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))﻿ ﻿ local args = {﻿     [1] = "159068388:933",﻿     [2] = Vector3.new(-3035.93603515625, -72.62808227539062, 64.58462524414062)﻿ }﻿ ﻿ game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))﻿ local args = {﻿     [1] = "159068388:16692",﻿     [2] = Vector3.new(-3032.64453125, -72.62808227539062, 62.863563537597656)﻿ }﻿ ﻿ game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))﻿ local args = {﻿     [1] = "159068388:729",﻿     [2] = Vector3.new(-3014.11474609375, -72.62808227539062, 67.6058349609375)﻿ }﻿ ﻿ game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))﻿ 
 
 
 
